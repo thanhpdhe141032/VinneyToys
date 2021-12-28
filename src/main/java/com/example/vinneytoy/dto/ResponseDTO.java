@@ -1,5 +1,7 @@
 package com.example.vinneytoy.dto;
 
+import com.example.vinneytoy.models.Meta;
+
 public class ResponseDTO {
     private Meta meta;
     private Object data;

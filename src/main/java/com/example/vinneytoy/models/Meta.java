@@ -1,4 +1,4 @@
-package com.example.vinneytoy.dto;
+package com.example.vinneytoy.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

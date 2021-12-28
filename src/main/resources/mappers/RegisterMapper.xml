@@ -12,8 +12,13 @@
         VALUES (#{firstName}, #{lastName}, #{gender}, #{dob}, #{accoutId}, #{phone});
     </insert>
 
-    <select id="selectUserId" parameterType="Register" resultType="int">
+    <select id="selectUserId" resultType="int">
         SELECT MAX account_id
+        FROM toys.toys_account;
+    </select>
+
+    <select id="selectUsername" resultType="string">
+        SELECT account_name
         FROM toys.toys_account;
     </select>
 

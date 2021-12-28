@@ -1,10 +1,13 @@
 package com.example.vinneytoy.mappers;
 
 import com.example.vinneytoy.models.Register;
-import org.apache.ibatis.annotations.Insert;
+
+import java.util.List;
 
 public interface RegisterMapper {
 
-    void register(Register register);
-    void selectUserId();
+    Register register(Register register);
+    int selectUserId();
+    List<String> selectUsername();
+
 }

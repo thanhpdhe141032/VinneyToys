@@ -17,5 +17,5 @@ public class Register {
     private String dob;
     private String gender;
     private String phoneNumber;
-    private String accountId;
+    private int accountId;
 }

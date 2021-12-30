@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.example.vinneytoy.mappers.UserMapper">
+
+    <insert id="register" parameterType="Register" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO toys.toys_account (account_name, account_password, role_id)
+        VALUES (#{userName}, #{userPassword}, '2');
+
+        INSERT INTO toys.toys_user_profile
+        (user_first_name, user_last_name, user_gender, user_dob, account_id, user_phone_number)
+        VALUES (#{firstName}, #{lastName}, #{gender}, #{dob}, #{accoutId}, #{phone});
+    </insert>
+
+    <select id="selectUserId" resultType="int">
+        SELECT MAX account_id
+        FROM toys.toys_account;
+    </select>
+
+    <select id="selectUsername" resultType="string">
+        SELECT account_name
+        FROM toys.toys_account;
+    </select>
+    <select id="findUserByUserName" resultType="com.example.vinneytoy.models.User">
+        SELECT *
+        FROM toys.toys_account
+        WHERE account_name = #{name};
+    </select>
+    <select id="findUserByUserMail" resultType="com.example.vinneytoy.models.User">
+        SELECT *
+        FROM toys.toys_account
+        WHERE account_mail = #{mail};
+    </select>
+
+</mapper>

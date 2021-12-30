@@ -1,15 +1,14 @@
 package com.example.vinneytoy.service;
 
 import com.example.vinneytoy.dto.ResponseDTO;
-import com.example.vinneytoy.models.Register;
+import com.example.vinneytoy.models.RegisterRequest;
+import com.example.vinneytoy.models.User;
 
 public interface RegisterService {
 
-    public int getLastUserId();
+    public User register(RegisterRequest register);
 
-    public boolean checkExistedUserName(String username) throws Exception;
-
-    public ResponseDTO register(Register register) throws Exception;
+    public User findUserByUsername(String name);
 
 
 }

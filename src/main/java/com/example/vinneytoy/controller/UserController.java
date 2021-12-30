@@ -2,18 +2,12 @@ package com.example.vinneytoy.controller;
 
 
 import com.example.vinneytoy.constant.Constant;
-import com.example.vinneytoy.constant.ResponseCode;
-import com.example.vinneytoy.constant.ResponseMessage;
-import com.example.vinneytoy.dto.ResponseDTO;
 import com.example.vinneytoy.exception.BadRequestException;
-import com.example.vinneytoy.mappers.UserMapper;
 import com.example.vinneytoy.models.LoginRequest;
-import com.example.vinneytoy.models.Meta;
 import com.example.vinneytoy.models.RegisterRequest;
 import com.example.vinneytoy.models.User;
 import com.example.vinneytoy.security.CustomUserDetails;
 import com.example.vinneytoy.security.JwtTokenUtil;
-import com.example.vinneytoy.service.LoginService;
 import com.example.vinneytoy.service.RegisterService;
 import com.example.vinneytoy.ultils.UserUtils;
 import lombok.extern.slf4j.Slf4j;
@@ -85,7 +79,7 @@ public class UserController {
             cookie.setPath("/");
             response.addCookie(cookie);
 
-            return ResponseEntity.ok(UserUtils.userUtil((CustomUserDetails) authentication.getPrincipal()).getUser());
+            return ResponseEntity.ok(UserUtils.userDtoUtils(((CustomUserDetails) authentication.getPrincipal()).getUser()));
         } catch (Exception ex) {
             throw new BadRequestException("Username or password incorrect");
         }

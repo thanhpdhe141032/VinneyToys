@@ -37,7 +37,6 @@ public class JwtTokenUtil {
 
     // get claims from token
     public Claims getClaimsFromToken(String token) {
-        // Kiểm tra token có bắt đầu bằng tiền tố
         if (token == null) return null;
 
         try {

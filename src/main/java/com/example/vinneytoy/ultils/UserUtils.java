@@ -4,7 +4,6 @@ import com.example.vinneytoy.constant.RoleEnum;
 import com.example.vinneytoy.dto.UserDto;
 import com.example.vinneytoy.models.RegisterRequest;
 import com.example.vinneytoy.models.User;
-import org.apache.coyote.Request;
 import org.springframework.beans.BeanUtils;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 
@@ -26,13 +25,12 @@ public class UserUtils {
         return result;
     }
 
-    public static UserDto toUserDto(User user) {
+    public static UserDto userDtoUtils(User user) {
         UserDto tmp = new UserDto();
         tmp.setId(user.getId());
         tmp.setFirstName(user.getFirstName());
         tmp.setPhone(user.getPhone());
         tmp.setRoles(user.getRole());
-
         return tmp;
     }
 
